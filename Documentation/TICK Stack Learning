@@ -1,1 +1,13 @@
+Time Series Data:
+Time series data is a collection of data from the same source collected over the same interval of data, with x-axis always being the time variable.
+
+eg: A graph measuring temperature in time intervals, a heat map showing its findings over time.
+
+Types of Time-Series Data:
+
+1. Regular time intervals (can convert by summarizing irregular findings over a time interval)
+2. Irregular time intervals
+
+Time-Series Database: Huge volume, time-stampes data, real-time, sensitive, growing market
+
 
