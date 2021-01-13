@@ -1,0 +1,8 @@
+Available Aggregator plugins
+
+basicstats
+final
+histogram
+merge
+minmax
+valuecounter
