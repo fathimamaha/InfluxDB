@@ -510,6 +510,97 @@ Text
 ***
 
 
+***
+# Using Alert Topics
+***
+
+Steps:
+1. first setup an Alert 
+2. save the alert as alertname.tick
+3. start the task on terminal
+eg:
+$ kapacitor define cpu_alert -tick cpu_alert.tick
+$ kapacitor enable cpu_alert
+4. make sure no handlers exist and make a handler
+topic: cpu
+id: slack
+kind: slack
+options:
+  channel: '#alerts'
+
+slack handler is made
+5. you can validate the handler and also save it as text
+eg:
+kapacitor define-topic-handler ./victorops.yaml
+
+if you would want to match conditions:
+topic: cpu
+id: slack
+kind: slack
+match: changed() == TRUE
+options:
+  channel: '#alerts'
+
+
+***
+# Writing your own Alert scripts
+***
+
+### Alert Handlers
+
+The Foo Service
+
+First steps are to create a package where most of the implementation will live. Create a directory relative to the root of the Kapacitor repo named services/foo (services: name of plugin)
+
+create a file for the configuration of the service named services/foo/config.go. In the file create a struct for now named Config.
+
+follow the instructions and ad snippets to the config file
+https://github.com/influxdata/kapacitor/blob/master/alert/HANDLERS.md
+
+1. integrate with the server
+2. define it in tickscripts
+3. create alert node
+4. create alert service
+
+
+***
+# Scraping and discovery
+***
+
+Data can be scrapped with the help of Kapacitor
+
+1. Kapacitor implements the discovery process to identify the available targets in your infrastructure. It requests that information at regular intervals and receives that information from an authority. 
+2. Kapacitor implements the scraping process to pull metrics data from the existing targets. It runs the scraping process at regular intervals. 
+3. Kapacitor processes the data according to configured TICKscripts. Use TICKscripts to filter, transform, and perform other tasks on the metrics data. 
+
+configuring scrapping:
+[[scraper]]
+  enabled = false
+  name = "myscraper"
+  # ID of the discoverer to use
+  discoverer-id = ""
+  # The kind of discoverer to use
+  discoverer-service = ""
+  db = "mydb"
+  rp = "myrp"
+  type = "prometheus"
+  scheme = "http"
+  metrics-path = "/metrics"
+  scrape-interval = "1m0s"
+  scrape-timeout = "10s"
+  username = ""
+  password = ""
+  bearer-token = ""
+  ssl-ca = ""
+  ssl-cert = ""
+  ssl-key = ""
+  ssl-server-name = ""
+  insecure-skip-verify = false
+
+
+
+***
+
 
 
 
