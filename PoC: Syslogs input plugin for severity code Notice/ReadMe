@@ -1,3 +1,4 @@
+### Syslogs input plugin for severity code Notice
 Filters severity code which has value 5 or notice
 syslog files and configuration file uploaded
 Refer screenshot to get app names on a histogram
