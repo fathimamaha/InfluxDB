@@ -1,0 +1,11 @@
+Attach this FluxQuery by navigating to Query builder on Data Explorer, results attached:
+
+from(bucket: "Syslog information")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => 
+    r["_measurement"] == "syslog" and
+    r["_field"] == "severity_code"
+  )
+  |> duplicate(column: "_value", as: "severity_code_value")
+  |> group(columns: ["severity_code_value"], mode: "by")
+  |> count()
