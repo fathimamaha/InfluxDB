@@ -1,0 +1,3 @@
+download private key of your gcp instance
+on command prompt: chmod 600 /path-of-private-key
+to run: ssh -i path-of-private-key user@<ipaddress>
