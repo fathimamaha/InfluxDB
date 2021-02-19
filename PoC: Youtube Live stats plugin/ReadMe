@@ -1,0 +1,6 @@
+Collects channel views, subscriber count, and video count from youtube channels. provide the channel ids in configuration file.
+
+authorize youtube credentials in the shell by $ export GOOGLE_APPLICATION_CREDENTIALS="/path/my-key.json"
+
+once done, enter api key in youtube.go file.
+make telegraf binary and execute. 
