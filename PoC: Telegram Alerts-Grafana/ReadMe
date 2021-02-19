@@ -1,0 +1,2 @@
+This rule alerts the cpu system info and sends it to a telegram group chat with snapshot through a bot that I had created called @graf25bot.
+The rule can be made easily on grafana and connected to telegram using bot api.
