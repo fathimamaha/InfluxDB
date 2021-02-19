@@ -1,0 +1,10 @@
+grafana was installed.
+localhost:3000 to access
+signed in with username and passowrd 'admin' and changed password
+installed influxdb as a databse with full access token from influxdb and localhost:8086
+pasted fluxquery 
+from(bucket: "System measurements")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "system")
+  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)
+  |> yield(name: "last")
